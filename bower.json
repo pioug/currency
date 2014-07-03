@@ -1,0 +1,8 @@
+{
+  "name": "currency",
+  "version": "1.0.0",
+  "directory": "app/bower_components",
+  "dependencies": {
+    "react": "~0.10.0"
+  }
+}

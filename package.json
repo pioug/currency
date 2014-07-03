@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-clean": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-livereload": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-usemin": "latest",
+    "koa": "latest",
+    "koa-static": "latest"
+  }
+}
