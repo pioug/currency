@@ -40,8 +40,8 @@ var CurrencyApp = React.createClass({
   getInitialState: function() {
     return {
       currencies: [
-        'usd',
-        'eur'
+        'USD',
+        'EUR'
       ],
       convert: { value: 0, currency: '' }
     }
@@ -49,14 +49,27 @@ var CurrencyApp = React.createClass({
   updateInput: function(convert) {
     this.setState({ convert: convert });
   },
+  suggestCurrency: function(e) {
+    this.setState({ newCurrencyInput: e.target.value });
+  },
+  addCurrency: function(e) {
+    var nextCurrencies = this.state.currencies.concat(this.state.newCurrencyInput);
+    this.setState({ currencies: nextCurrencies });
+    e.preventDefault();
+  },
   render: function() {
     return (
       <main>
         <CurrencyInputs currencies={this.state.currencies} convert={this.state.convert} updateValue={this.updateInput} />
+        <form onSubmit={this.addCurrency}>
+          <input onChange={this.suggestCurrency} value={this.state.newCurrencyInput} />
+          <button>Add</button>
+        </form>
       </main>
     );
   }
 });
+
 
 React.renderComponent(
   <CurrencyApp />,
