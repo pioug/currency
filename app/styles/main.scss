@@ -103,7 +103,8 @@ aside {
   border-right: 1px solid;
   height: 100vh;
   left: -100%;
-  min-width: 24em;
+  min-width: 22em;
+  max-width: 100vw;
   position: fixed;
   transition: all .4s ease-out;
   &.visible {
@@ -139,4 +140,34 @@ aside strong {
 
 a {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slide {
+  height: 3em;
+  padding: 0;
+  transition: .3s ease-out all;
+}
+
+.slide.ng-enter {
+  height: 0;
+  opacity: 0;
+  transform: translateY(2em);
+}
+
+.slide.ng-enter.ng-enter-active {
+  height: 3em;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.ng-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide.ng-leave.ng-leave-active {
+  height: 0;
+  opacity: 0;
+  transform: translateY(2em);
 }

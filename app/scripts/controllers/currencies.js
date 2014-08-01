@@ -1,6 +1,6 @@
 app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
 
-  $scope.currencies = ['EUR', 'USD', 'XBT'];
+  $scope.currencies = ['XBT'];
   $scope.from = {
     value: 10,
     currency: 'USD'
