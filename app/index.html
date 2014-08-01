@@ -10,7 +10,7 @@
       <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies"></currency>
     </main>
 
-    <aside ng-class="{ visible: aside }">
+    <aside ng-class="{ visible: aside }" ng-click="$event.stopPropagation()">
       <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
       <div>
         <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">

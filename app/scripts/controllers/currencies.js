@@ -6,7 +6,7 @@ app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
     currency: 'USD'
   };
 
-  $http.get('https://gist.githubusercontent.com/pioug/aa0b42824d91a0b916af/raw/61fac7996969bcbaf22aac1a1c6a5eaf22ea835b/currencies.json')
+  $http.get('https://gist.githubusercontent.com/pioug/aa0b42824d91a0b916af/raw/de8dac8ee03d56bb7e9d69b4d2606959b9f6b226/currencies.json')
     .success(function(data) {
       $scope.currenciesList = _.sortBy(data, 'code');
     });
