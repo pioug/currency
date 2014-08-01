@@ -5,25 +5,30 @@
     <link rel="stylesheet" href="styles/main.css">
   </head>
   <body ng-controller="currencyCtrl" ng-init="aside = false">
+
     <main>
       <currency from="from" to-currency="{{ currency.toCurrency }}" ng-repeat="currency in currencies"></currency>
     </main>
+
     <aside ng-class="{ visible: aside }">
-      <input ng-model="nextCurrency" placeholder="Seach a currency">
+      <input ng-model="nextCurrency" placeholder="Search a currency">
       <div>
         <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-click="addCurrency(currency.code)">
           <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
         </a>
       </div>
     </aside>
-    <header ng-class="{ visible: aside }">
+
+    <header>
       <a ng-click="aside = !aside">+</a>
     </header>
+
     <script src="bower_components/lodash//dist/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/currencies.js"></script>
     <script src="scripts/directives/currency.js"></script>
   </body>
 </html>

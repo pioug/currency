@@ -7,6 +7,7 @@ app.directive('currency', ['$compile', '$location', '$resource', function($compi
     },
     templateUrl: 'views/components/currency.html',
     link: function(scope, iElement, iAttrs, controller) {
+
       scope.changeBase = function(evt) {
         scope.from.value = +scope.toValue;
         scope.from.currency = scope.toCurrency;
@@ -23,6 +24,7 @@ app.directive('currency', ['$compile', '$location', '$resource', function($compi
           });
         }
       }, true);
+
     }
   };
 }]);
