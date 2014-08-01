@@ -1,4 +1,4 @@
-app.controller('currencyCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.currencies = ['EUR', 'USD', 'XBT'];
   $scope.from = {
@@ -21,6 +21,19 @@ app.controller('currencyCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.isSelected = function(currency) {
     return $scope.currencies.indexOf(currency) !== -1;
+  };
+
+
+  $scope.hideAside = function(event) {
+    $scope.aside = false;
+  };
+
+  $scope.toggleAside = function(event) {
+    event.stopPropagation();
+    $scope.aside = !$scope.aside;
+    if ($scope.aside) {
+      $scope.nextCurrency = '';
+    }
   };
 
 }]);

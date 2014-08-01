@@ -4,7 +4,7 @@
     <title>currency</title>
     <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body ng-controller="currencyCtrl" ng-init="aside = false">
+  <body ng-controller="currenciesCtrl" ng-init="aside = false" ng-click="hideAside($event)">
 
     <main>
       <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies"></currency>
@@ -20,7 +20,7 @@
     </aside>
 
     <header ng-class="{ visible: aside }">
-      <a ng-click="aside = !aside; nextCurrency = aside ? '' : nextCurrency;">
+      <a ng-click="toggleAside($event)">
         <i></i>
         <i></i>
         <i></i>
