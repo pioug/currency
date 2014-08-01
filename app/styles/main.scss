@@ -95,6 +95,9 @@ aside div {
 aside a {
   display: block;
   padding: .4em .8em;
+  &.selected {
+    background: red;
+  }
 }
 
 aside strong {

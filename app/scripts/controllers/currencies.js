@@ -1,6 +1,6 @@
 app.controller('currencyCtrl', ['$scope', '$http', function($scope, $http) {
 
-  $scope.currencies = [{ toCurrency: "EUR" }, { toCurrency: "USD" }, { toCurrency: "XBT" }];
+  $scope.currencies = ['EUR', 'USD', 'XBT'];
   $scope.from = {
     value: 10,
     currency: 'USD'
@@ -12,11 +12,15 @@ app.controller('currencyCtrl', ['$scope', '$http', function($scope, $http) {
     });
 
   $scope.addCurrency = function(currency) {
-    $scope.currencies.push({ toCurrency: currency });
+    if (!$scope.isSelected(currency)) {
+      $scope.currencies.push(currency);
+    } else {
+      $scope.currencies.splice($scope.currencies.indexOf(currency), 1);
+    }
   };
 
-  $scope.$watch('from', function() {
-    console.log($scope.from)
-  }, true);
+  $scope.isSelected = function(currency) {
+    return $scope.currencies.indexOf(currency) !== -1;
+  };
 
 }]);

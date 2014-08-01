@@ -7,20 +7,20 @@
   <body ng-controller="currencyCtrl" ng-init="aside = false">
 
     <main>
-      <currency from="from" to-currency="{{ currency.toCurrency }}" ng-repeat="currency in currencies"></currency>
+      <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies"></currency>
     </main>
 
     <aside ng-class="{ visible: aside }">
-      <input ng-model="nextCurrency" placeholder="Search a currency">
+      <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
       <div>
-        <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-click="addCurrency(currency.code)">
+        <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">
           <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
         </a>
       </div>
     </aside>
 
     <header>
-      <a ng-click="aside = !aside">+</a>
+      <a ng-click="aside = !aside; nextCurrency = aside ? '' : nextCurrency;">+</a>
     </header>
 
     <script src="bower_components/lodash//dist/lodash.js"></script>
@@ -30,5 +30,6 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/currencies.js"></script>
     <script src="scripts/directives/currency.js"></script>
+    <script src="scripts/directives/force-focus.js"></script>
   </body>
 </html>
