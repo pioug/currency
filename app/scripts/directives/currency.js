@@ -1,4 +1,4 @@
-app.directive('currency', ['$compile', '$location', function($compile, $location) {
+app.directive('currency', ['$compile', '$location', '$resource', function($compile, $location, $resource) {
   return {
     scope: {
       toCurrency: "@",
@@ -15,7 +15,11 @@ app.directive('currency', ['$compile', '$location', function($compile, $location
         if (scope.from.currency === scope.toCurrency) {
           scope.toValue = scope.from.value;
         } else {
-          scope.toValue = scope.from.value * 10;
+          var Rate = $resource('http://rate-exchange.appspot.com/currency?from=:from&to=:to');
+          Rate.get({from: scope.from.currency, to: scope.toCurrency}, function(rate) {
+            scope.exchange = rate;
+            scope.toValue = scope.from.value * scope.exchange.rate;
+          });
         }
       }, true);
     }

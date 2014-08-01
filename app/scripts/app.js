@@ -1,7 +1,7 @@
 var app = angular
-  .module('Currency',['ngAnimate'])
+  .module('Currency',['ngAnimate', 'ngResource'])
   .controller('currencyCtrl', ['$scope', function($scope) {
-    $scope.currencies = [{ toCurrency: "EUR" }, { toCurrency: "USD" }];
+    $scope.currencies = [{ toCurrency: "EUR" }, { toCurrency: "USD" }, { toCurrency: "XBT" }];
     $scope.from = {
       value: 10,
       currency: 'USD'
