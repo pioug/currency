@@ -1,0 +1,104 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900);
+
+body {
+  align-items: center;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  width: 100vw;
+}
+
+header {
+  left: 1em;
+  position: fixed;
+  top: 1em;
+}
+
+header a {
+  background-color: #78909c;
+  border-radius: 50%;
+  box-shadow: 0 2px 2px 0px #757575;
+  color: #fff;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 300;
+  height: 2em;
+  line-height: 2em;
+  margin: .5em;
+  position: relative;
+  text-align: center;
+  transition: all .1s ease-out;
+  width: 2em;
+  &:active {
+    background-color: #455a64;
+    box-shadow: 0 1px 1px 0 #757575;
+    top: 1px;
+  }
+}
+
+input {
+    border: 0;
+    padding: .8em;
+  border-bottom: 1px solid;
+  font-size: 1.1em;
+  outline: 0;
+  padding-bottom: .4em;
+  text-align: right;
+  width: 8em;
+}
+
+label {
+  padding: .4em;
+}
+
+fieldset {
+  border: 0;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+}
+
+aside {
+  background: white;
+  border-right: 1px solid;
+  height: 100vh;
+  left: -100%;
+  min-width: 24em;
+  position: fixed;
+  transition: all .4s ease-out;
+  &.visible {
+    left: 0;
+  }
+}
+
+aside input {
+    padding: .8em;
+  box-sizing: border-box;
+  padding-top: 5.2em;
+  width: 100%;
+}
+
+aside div {
+  overflow: scroll;
+  height: calc(100vh - 8.7em);
+  padding: .4em 0;
+}
+
+aside a {
+  display: block;
+  padding: .4em .8em;
+}
+
+aside strong {
+  display: inline-block;
+  width: 3em;
+}
+
+a {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+}

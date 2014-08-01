@@ -2,20 +2,23 @@
 <html ng-app="Currency">
   <head>
     <title>currency</title>
+    <link rel="stylesheet" href="styles/main.css">
   </head>
-  <body>
-    <main ng-controller="currencyCtrl">
+  <body ng-controller="currencyCtrl" ng-init="aside = false">
+    <main>
       <currency from="from" to-currency="{{ currency.toCurrency }}" ng-repeat="currency in currencies"></currency>
-      <fieldset>
-        <input ng-model="nextCurrency">
-        <ul>
-          <li ng-repeat="currency in currenciesList | filter:nextCurrency | limitTo: 3" ng-click="addCurrency(currency.code)">
-            <p><em>{{ currency.code }}</em> {{ currency.name }}</p>
-          </li>
-        </ul>
-      </fieldset>
-      {{ from }}
     </main>
+    <aside ng-class="{ visible: aside }">
+      <input ng-model="nextCurrency" placeholder="Seach a currency">
+      <div>
+        <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-click="addCurrency(currency.code)">
+          <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
+        </a>
+      </div>
+    </aside>
+    <header ng-class="{ visible: aside }">
+      <a ng-click="aside = !aside">+</a>
+    </header>
     <script src="bower_components/lodash//dist/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>

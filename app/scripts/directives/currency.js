@@ -1,5 +1,6 @@
 app.directive('currency', ['$compile', '$location', '$resource', function($compile, $location, $resource) {
   return {
+    replace: true,
     scope: {
       toCurrency: "@",
       from: "="
@@ -18,7 +19,7 @@ app.directive('currency', ['$compile', '$location', '$resource', function($compi
           var Rate = $resource('http://rate-exchange.appspot.com/currency?from=:from&to=:to');
           Rate.get({from: scope.from.currency, to: scope.toCurrency}, function(rate) {
             scope.exchange = rate;
-            scope.toValue = scope.from.value * scope.exchange.rate;
+            scope.toValue = +(scope.from.value * scope.exchange.rate).toFixed(4);
           });
         }
       }, true);
