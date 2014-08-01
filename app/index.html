@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="Currency">
   <head>
-    <title>currency</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <title>currency</title>
+
+    <!-- build:css(.tmp) styles/stylesheet.min.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
   </head>
   <body ng-controller="currenciesCtrl" ng-init="aside = false" ng-click="hideAside($event)">
 
@@ -28,6 +33,7 @@
       </a>
     </header>
 
+    <!-- build:js scripts/script.min.js -->
     <script src="bower_components/lodash//dist/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -36,5 +42,7 @@
     <script src="scripts/controllers/currencies.js"></script>
     <script src="scripts/directives/currency.js"></script>
     <script src="scripts/directives/force-focus.js"></script>
+    <!-- endbuild -->
+
   </body>
 </html>

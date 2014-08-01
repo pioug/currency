@@ -16,7 +16,7 @@ var dev = {
   index: 'app/index.html',
   scripts: 'app/scripts/**/*.js',
   styles: 'app/styles/**/*.scss',
-  templates: 'app/templates/*.html',
+  templates: 'app/views/**/*.html',
   tmp: '.tmp'
 };
 
@@ -25,7 +25,7 @@ var prod = {
   images: 'dist/images',
   scripts: 'dist/scripts',
   styles: 'dist/styles',
-  templates: 'dist/templates'
+  templates: 'dist/views'
 };
 
 var options = {
