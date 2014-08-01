@@ -32,12 +32,44 @@ header a {
   margin: .5em;
   position: relative;
   text-align: center;
-  transition: all .1s ease-out;
+  transition: all .2s ease-out;
   width: 2em;
   &:active {
     background-color: #455a64;
     box-shadow: 0 1px 1px 0 #757575;
     top: 1px;
+  }
+}
+
+header i {
+  border-top: 3px solid white;
+  width: .6em;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  transition: all .2s ease-out;
+  &:first-of-type {
+    transform: translateY(.2em);
+  }
+  &:last-of-type {
+    transform: translateY(-.2em);
+  }
+}
+
+header.visible i {
+  &:first-of-type {
+    transform: rotate(-45deg);
+  }
+  &:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+  &:last-of-type {
+    transform: rotate(45deg);
   }
 }
 

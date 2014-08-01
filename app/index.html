@@ -19,8 +19,12 @@
       </div>
     </aside>
 
-    <header>
-      <a ng-click="aside = !aside; nextCurrency = aside ? '' : nextCurrency;">+</a>
+    <header ng-class="{ visible: aside }">
+      <a ng-click="aside = !aside; nextCurrency = aside ? '' : nextCurrency;">
+        <i></i>
+        <i></i>
+        <i></i>
+      </a>
     </header>
 
     <script src="bower_components/lodash//dist/lodash.js"></script>
