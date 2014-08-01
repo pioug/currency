@@ -5,9 +5,13 @@
   </head>
   <body>
     <main ng-controller="currencyCtrl">
+      <currency from="from" to-currency="{{ currency.toCurrency }}" ng-repeat="currency in currencies"></currency>
+      {{ from }}
+      <input type="button" value="Add" ng-click="addCurrency()">
     </main>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/directives/currency.js"></script>
   </body>
 </html>
