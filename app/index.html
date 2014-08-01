@@ -6,9 +6,17 @@
   <body>
     <main ng-controller="currencyCtrl">
       <currency from="from" to-currency="{{ currency.toCurrency }}" ng-repeat="currency in currencies"></currency>
+      <fieldset>
+        <input ng-model="nextCurrency">
+        <ul>
+          <li ng-repeat="currency in currenciesList | filter:nextCurrency | limitTo: 3" ng-click="addCurrency(currency.code)">
+            <p><em>{{ currency.code }}</em> {{ currency.name }}</p>
+          </li>
+        </ul>
+      </fieldset>
       {{ from }}
-      <input type="button" value="Add" ng-click="addCurrency()">
     </main>
+    <script src="bower_components/lodash//dist/lodash.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
