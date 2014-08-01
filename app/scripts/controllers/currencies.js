@@ -2,8 +2,8 @@ app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.currencies = ['XBT'];
   $scope.from = {
-    value: 10,
-    currency: 'USD'
+    value: 1,
+    currency: 'XBT'
   };
 
   $http.get('https://gist.githubusercontent.com/pioug/aa0b42824d91a0b916af/raw/de8dac8ee03d56bb7e9d69b4d2606959b9f6b226/currencies.json')
