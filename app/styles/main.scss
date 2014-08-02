@@ -189,3 +189,9 @@ a {
   opacity: 0;
   transform: translateY(2em);
 }
+
+@media (orientation : portrait) {
+  aside {
+    width: 100vw;
+  }
+}
