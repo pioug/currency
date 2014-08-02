@@ -90,6 +90,7 @@ input {
   border: 0;
   color: rgba(255, 255, 255, 1);
   font-size: 1.1em;
+  margin: 0;
   outline: 0;
   padding: .8em;
   text-align: right;
@@ -190,7 +191,7 @@ a {
   transform: translateY(2em);
 }
 
-@media (orientation : portrait) {
+@media (max-width: 30em) {
   aside {
     width: 100vw;
   }
