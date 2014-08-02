@@ -13,7 +13,7 @@
   <body ng-controller="currenciesCtrl" ng-init="aside = false" ng-click="hideAside($event)">
 
     <main>
-      <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies" class="slide"></currency>
+      <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies | orderBy:'toString()'" class="slide"></currency>
     </main>
 
     <aside ng-class="{ visible: aside }" ng-click="$event.stopPropagation()">

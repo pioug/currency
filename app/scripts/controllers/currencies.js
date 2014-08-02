@@ -2,13 +2,13 @@ app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
 
 
   try {
-    $scope.currencies = JSON.parse(localStorage.currencies)
+    $scope.currencies = JSON.parse(localStorage.currencies);
   } catch(e) {
     $scope.currencies = ['XBT'];
   }
 
   try {
-    $scope.from = JSON.parse(localStorage.from)
+    $scope.from = JSON.parse(localStorage.from);
   } catch(e) {
     $scope.from = { value: 1, currency: 'XBT' };
   }
