@@ -19,5 +19,5 @@ node --harmony-generators `which gulp` serve
 Roadmap
 ---
 
-- Improve mobile support
+- Improve crossbrowser compatibility
 - Reduce API calls
