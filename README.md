@@ -4,7 +4,7 @@ Features
 ---
 
 - Convert multiple currencies at the same time
-- Rates come from http://xe.com/ (using API of http://rate-exchange.appspot.com/)
+- Rates come from http://xe.com/ (*scrapped using my [API](https://github.com/pioug/currency/blob/master/api/index.js) hosted on Heroku*)
 - Save selected currencies and typed value in localStorage
 
 Building
@@ -20,4 +20,5 @@ Roadmap
 ---
 
 - Improve crossbrowser compatibility
-- Reduce API calls
+- Reduce API calls on client side
+- Improve API implementation
