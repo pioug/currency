@@ -13,9 +13,9 @@ app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.from = { value: 1, currency: 'XBT' };
   }
 
-  $http.get('https://gist.githubusercontent.com/pioug/aa0b42824d91a0b916af/raw/de8dac8ee03d56bb7e9d69b4d2606959b9f6b226/currencies.json')
+  $http.get('http://aqueous-temple-6169.herokuapp.com/api/v1/currencies')
     .success(function(data) {
-      $scope.currenciesList = _.sortBy(data, 'code');
+      $scope.currenciesList = data;
     });
 
   $scope.$watch('from', function(newValues, oldValues, scope) {
