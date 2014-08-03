@@ -3,6 +3,7 @@ var router = require('koa-router');
 var Q = require('q');
 var cheerio = require('cheerio');
 var request = Q.denodeify(require('request'));
+var _ = require('lodash');
 
 function doHttpRequest(url) {
   return request(url).then(function(resultParams) {
@@ -18,7 +19,24 @@ app.use(function *(next) {
 });
 
 app.use(router(app));
+app.get('/api/v1/currencies', currencies);
 app.get('/api/v1/:from/:to', rate);
+
+function *currencies() {
+  var page = yield doHttpRequest('http://www.xe.com/currency/');
+  var $ = cheerio.load(page.body);
+  var list = $('#popCurr li');
+  var currencies = [];
+  list.each(function(index, element) {
+    var splitted = $(element).text().split('-');
+    currencies.push({
+      code: splitted[0].trim(),
+      name: splitted[1].trim()
+    })
+  })
+  currencies = _.sortBy(currencies, 'code');
+  this.body = JSON.stringify(currencies, null, 2);
+}
 
 function *rate(from, to) {
   var from = this.params.from.toUpperCase();
