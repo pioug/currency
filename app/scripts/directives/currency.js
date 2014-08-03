@@ -17,7 +17,7 @@ app.directive('currency', ['$compile', '$location', '$http', function($compile, 
         if (scope.from.currency === scope.toCurrency) {
           scope.toValue = scope.from.value;
         } else {
-          $http.jsonp('http://rate-exchange.appspot.com/currency?from=' + scope.from.currency + '&to=' + scope.toCurrency + '&callback=JSON_CALLBACK').success(function(rate) {
+          $http.get('http://aqueous-temple-6169.herokuapp.com/api/v1/' + scope.from.currency + '/' + scope.toCurrency).success(function(rate) {
             scope.exchange = rate;
             scope.toValue = +(scope.from.value * scope.exchange.rate).toFixed(4);
           });
