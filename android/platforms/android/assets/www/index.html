@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="Currency">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <title>currency</title>
+
+    <link rel="stylesheet" href="styles/stylesheet.min.css"/>
+
+  </head>
+  <body ng-controller="currenciesCtrl" ng-init="aside = false" ng-click="hideAside($event)">
+
+    <main>
+      <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies | orderBy:'toString()'" class="slide"></currency>
+    </main>
+
+    <aside ng-class="{ visible: aside }" ng-click="$event.stopPropagation()">
+      <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
+      <div>
+        <section>
+        <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">
+          <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
+        </a>
+        </section>
+      </div>
+    </aside>
+
+    <header ng-class="{ visible: aside }">
+      <a ng-click="toggleAside($event)">
+        <i></i>
+        <i></i>
+        <i></i>
+      </a>
+    </header>
+
+    <script src="scripts/script.min.js"></script>
+
+  </body>
+</html>

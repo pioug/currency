@@ -19,9 +19,11 @@
     <aside ng-class="{ visible: aside }" ng-click="$event.stopPropagation()">
       <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
       <div>
+        <section>
         <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">
           <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
         </a>
+        </section>
       </div>
     </aside>
 

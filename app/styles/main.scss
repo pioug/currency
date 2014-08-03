@@ -79,21 +79,26 @@ header i {
   transition: all .2s ease-out;
   width: .6em;
   &:first-of-type {
+    -webkit-transform: translateY(.2em);
     transform: translateY(.2em);
   }
   &:last-of-type {
+    -webkit-transform: translateY(-.2em);
     transform: translateY(-.2em);
   }
 }
 
 header.visible i {
   &:first-of-type {
+    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
   &:nth-child(2) {
+    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
   &:last-of-type {
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
 }
@@ -150,8 +155,9 @@ aside input {
 }
 
 aside div {
-  height: calc(100vh - 8.7em);
-  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: calc(100% - 8.7em);
+  overflow: auto;
   padding: .4em 0;
 }
 
@@ -184,23 +190,27 @@ a {
 .slide.ng-enter {
   height: 0;
   opacity: 0;
+  -webkit-transform: translateY(2em);
   transform: translateY(2em);
 }
 
 .slide.ng-enter.ng-enter-active {
   height: 3em;
   opacity: 1;
+  -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
 .slide.ng-leave {
   opacity: 1;
+  -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 
 .slide.ng-leave.ng-leave-active {
   height: 0;
   opacity: 0;
+  -webkit-transform: translateY(2em);
   transform: translateY(2em);
 }
 
