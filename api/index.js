@@ -20,7 +20,7 @@ app.use(function *(next) {
 
 app.use(router(app));
 app.get('/api/v1/currencies', currencies);
-app.get('/api/v1/:from/:to', rate);
+app.get('/api/v1/rate/:from/:to', rate);
 
 function *currencies() {
   var page = yield doHttpRequest('http://www.xe.com/currency/');
