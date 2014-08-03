@@ -1,1 +1,1 @@
-var app = angular.module('Currency',['ngAnimate', 'ngResource']);
+var app = angular.module('Currency',['ngAnimate']);
