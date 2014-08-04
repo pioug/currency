@@ -8,9 +8,12 @@ app.directive('currency', ['$http', function($http) {
     templateUrl: 'views/components/currency.html',
     link: function(scope, element, attrs, controller) {
 
-      scope.changeBase = function(evt) {
-        scope.from.value = +scope.toValue;
-        scope.from.currency = scope.toCurrency;
+      scope.changeBase = function(event) {
+        if ((event.keyCode >= 48 && event.keyCode <= 57) ||
+            (event.keyCode >= 96 && event.keyCode <= 105)) {
+          scope.from.value = +scope.toValue;
+          scope.from.currency = scope.toCurrency;
+        }
       };
 
       scope.$watch('from', function() {
@@ -19,7 +22,7 @@ app.directive('currency', ['$http', function($http) {
         } else {
           $http.get('http://aqueous-temple-6169.herokuapp.com/api/v1/rate/' + scope.from.currency + '/' + scope.toCurrency).success(function(rate) {
             scope.exchange = rate;
-            scope.toValue = +(scope.from.value * scope.exchange.rate).toFixed(4);
+            scope.toValue = +(scope.from.value * scope.exchange.rate);
           });
         }
       }, true);
