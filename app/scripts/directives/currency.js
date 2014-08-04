@@ -17,9 +17,11 @@ app.directive('currency', ['$http', function($http) {
         }
       };
 
-      scope.$watch('from', function() {
+      scope.$watch('from', function(newValue, oldValue) {
         if (scope.from.currency === scope.toCurrency) {
           scope.toValue = scope.from.value;
+        } else if (scope.exchange && newValue.currency === oldValue.currency) {
+          scope.toValue = +(scope.from.value * scope.exchange.rate);
         } else {
           $http.get('http://aqueous-temple-6169.herokuapp.com/api/v1/rate/' + scope.from.currency + '/' + scope.toCurrency).success(function(rate) {
             scope.exchange = rate;
