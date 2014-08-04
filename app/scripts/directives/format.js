@@ -4,7 +4,7 @@ app.directive('format', ['$filter', function($filter) {
     link: function(scope, element, attrs, controller) {
 
       element.bind('blur', function() {
-        this.value = $filter('currency')(this.value, '');
+        this.value = $filter('currency')(this.value.replace(/,/g, ''), '');
       });
 
       controller.$formatters.push(function(value) {
