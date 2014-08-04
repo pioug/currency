@@ -159,6 +159,9 @@ aside a {
   color: rgba(0, 0, 0, .87);
   display: block;
   padding: .4em .8em;
+  &:hover {
+    background: #ffccbc;
+  }
   &.selected {
     background: #ff3d00;
     color: rgba(255, 255, 255, .87);
