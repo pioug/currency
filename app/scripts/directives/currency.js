@@ -1,4 +1,4 @@
-app.directive('currency', ['$compile', '$location', '$http', function($compile, $location, $http) {
+app.directive('currency', ['$http', function($http) {
   return {
     replace: true,
     scope: {
@@ -6,7 +6,7 @@ app.directive('currency', ['$compile', '$location', '$http', function($compile, 
       from: "="
     },
     templateUrl: 'views/components/currency.html',
-    link: function(scope, iElement, iAttrs, controller) {
+    link: function(scope, element, attrs, controller) {
 
       scope.changeBase = function(evt) {
         scope.from.value = +scope.toValue;
