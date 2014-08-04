@@ -26,7 +26,7 @@
       <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
       <div>
         <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">
-          <strong>{{ currency.code }}</strong><em>{{ currency.name }}</em>
+          <strong ng-bind-html="currency.code | highlight: nextCurrency"></strong><em ng-bind-html="currency.name | highlight: nextCurrency"></em>
         </a>
       </div>
     </aside>
@@ -52,6 +52,7 @@
     <script src="scripts/directives/currency.js"></script>
     <script src="scripts/directives/format.js"></script>
     <script src="scripts/directives/force-focus.js"></script>
+    <script src="scripts/filters/highlight.js"></script>
     <!-- endbuild -->
 
   </body>

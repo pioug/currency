@@ -178,6 +178,10 @@ aside strong {
   width: 3em;
 }
 
+.highlighted {
+  text-decoration: underline;
+}
+
 a {
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
