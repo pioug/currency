@@ -161,10 +161,15 @@ aside a {
   padding: .4em .8em;
   &:hover {
     background: #ffccbc;
+    transition: all .1s ease-out;
   }
   &.selected {
     background: #ff3d00;
     color: rgba(255, 255, 255, .87);
+    transition: all .3s ease-out;
+  }
+  &.ng-leave.ng-leave {
+    transition: none;
   }
 }
 
