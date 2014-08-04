@@ -10,7 +10,8 @@ app.directive('currency', ['$http', function($http) {
 
       scope.changeBase = function(event) {
         if ((event.keyCode >= 48 && event.keyCode <= 57) ||
-            (event.keyCode >= 96 && event.keyCode <= 105)) {
+            (event.keyCode >= 96 && event.keyCode <= 105) ||
+            (event.keyCode === 8 || event.keyCode === 46)) {
           scope.from.value = +scope.toValue;
           scope.from.currency = scope.toCurrency;
         }
