@@ -44,7 +44,7 @@ function *rate(from, to) {
 
   var page = yield doHttpRequest('http://www.xe.com/currencyconverter/convert/?Amount=1&From=' + from + '&To=' + to);
   var $ = cheerio.load(page.body);
-  var rate = parseFloat($('.uccRes td:last-of-type').text());
+  var rate = parseFloat($('.uccRes td:last-of-type').text().replace(/,/g,''));
   var date = new Date($('.uccMMR a').text());
 
   var response = {
