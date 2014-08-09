@@ -8,14 +8,18 @@ app.directive('currency', ['$http', function($http) {
     templateUrl: 'views/components/currency.html',
     link: function(scope, element, attrs, controller) {
 
-      scope.changeBase = function(event) {
+      scope.changeBaseOnKeyUp = function(event) {
         if ((event.keyCode >= 48 && event.keyCode <= 57) ||
             (event.keyCode >= 96 && event.keyCode <= 105) ||
             (event.keyCode === 8 || event.keyCode === 46)) {
-          scope.from.value = +scope.toValue;
-          scope.from.currency = scope.toCurrency;
+          scope.changeBase();
         }
       };
+
+      scope.changeBase = function() {
+        scope.from.value = +scope.toValue;
+        scope.from.currency = scope.toCurrency;
+      }
 
       scope.$watch('from', function(newValue, oldValue) {
         if (scope.from.currency === scope.toCurrency) {

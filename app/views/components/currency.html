@@ -1,4 +1,4 @@
 <fieldset>
-  <input type="tel" ng-model="toValue" ng-keyup="changeBase($event)" format>
+  <input type="tel" ng-model="toValue" ng-paste="changeBase()" ng-keyup="changeBase($event)" format>
   <label>{{ toCurrency }}</label>
 </fieldset>
