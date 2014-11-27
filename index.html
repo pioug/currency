@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="Currency">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+    <meta property="og:image" content="https://raw.githubusercontent.com/pioug/currency/master/preview.png">
+    <meta property="og:title" content="Currency converter">
+    <meta property="og:url" content="http://pioug.me/currency/">
+    <meta property="og:description" content="A sexy currency converter built with love by @pioug">
+    <meta property="og:type" content="website">
+
+    <title>Currency converter</title>
+
+    <link rel="stylesheet" href="styles/stylesheet.min.css"/>
+
+  </head>
+  <body ng-controller="currenciesCtrl" ng-init="aside = false" ng-click="hideAside($event)">
+
+    <main>
+      <currency from="from" to-currency="{{ currency }}" ng-repeat="currency in currencies | orderBy:'toString()'" class="slide"></currency>
+    </main>
+
+    <aside ng-class="{ visible: aside }" ng-click="$event.stopPropagation()">
+      <input ng-model="nextCurrency" placeholder="Search a currency" force-focus="aside">
+      <div>
+        <a ng-repeat="currency in currenciesList | orderBy:currency.code | filter:nextCurrency" ng-class="{ selected: isSelected(currency.code)}" ng-click="addCurrency(currency.code)">
+          <strong ng-bind-html="currency.code | highlight: nextCurrency"></strong><!--
+          --><em ng-bind-html="currency.name | highlight: nextCurrency"></em>
+        </a>
+      </div>
+    </aside>
+
+    <header ng-class="{ visible: aside }">
+      <a ng-click="toggleAside($event)">
+        <i></i>
+        <i></i>
+        <i></i>
+      </a>
+    </header>
+
+    <!-- Fork me ribbon -->
+    <a target="_blank" href="https://github.com/pioug/currency" class="ribbon">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-animate.min.js"></script>
+
+    <script src="scripts/script.min.js"></script>
+
+  </body>
+</html>
