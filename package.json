@@ -1,19 +1,17 @@
 {
   "engines": {
-    "node": ">=0.12.0"
+    "iojs": ">=1.7.1"
   },
   "devDependencies": {
+    "browser-sync": "2.6.4",
+    "del": "1.1.1",
     "gulp": "latest",
-    "gulp-clean": "latest",
     "gulp-htmlmin": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-livereload": "latest",
     "gulp-minify-css": "latest",
+    "gulp-nodemon": "2.0.2",
     "gulp-sass": "latest",
     "gulp-uglify": "latest",
-    "gulp-usemin": "latest",
-    "koa": "latest",
-    "koa-static": "latest"
+    "gulp-usemin": "latest"
   },
   "dependencies": {
     "cheerio": "0.19.0",
