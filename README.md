@@ -6,7 +6,7 @@ Features
 ---
 
 - Convert multiple currencies at the same time
-- Rates come from http://xe.com/ (*scrapped using my [API](https://github.com/pioug/currency/blob/master/api/index.js) hosted on Heroku*)
+- Rates come from http://xe.com/ (*scrapped using my [API](https://github.com/pioug/currency/blob/master/api/index.js)*)
 - Save selected currencies and typed value in localStorage
 
 Building
@@ -25,11 +25,7 @@ node --harmony-generators api
 API
 ---
 
-*API server is currently hosted on Heroku.*
-
-All URLs start with `http://aqueous-temple-6169.herokuapp.com/api/v1/`.
-
-- `GET /currencies` will return all currencies supported by http://xe.com.
+*Took down the endpoint because it does not respect the XE’s Terms of Use*
 
 ```
 GET /currencies
