@@ -1,13 +1,16 @@
 var gulp = require('gulp');
 
-var clean = require('gulp-clean');
+var del = require('del');
 var htmlmin = require('gulp-htmlmin');
-var imagemin = require('gulp-imagemin');
-var livereload = require('gulp-livereload');
 var minifyCss = require('gulp-minify-css');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var usemin = require('gulp-usemin');
+
+
+var browserSync = require('browser-sync').create(),
+  bsReload = browserSync.reload,
+  nodemon = require('gulp-nodemon');
 
 var dev = {
   css: '.tmp/styles',
@@ -29,36 +32,23 @@ var prod = {
 };
 
 var options = {
-  clean: { read: false },
   htmlmin: { collapseWhitespace: true },
   imagemin: { interlaced: true, optimizationLevel: 3, progressive: true },
   sass: { compass: true, errLogToConsole: true, style: 'compressed' },
   uglify: { mangle: false }
 };
 
-gulp.task('server', function() {
-  var koa = require('koa');
-  var serve = require('koa-static');
-  var app = koa();
-  app.use(serve(dev.dir));
-  app.use(serve(dev.tmp));
-  app.listen(process.env.PORT || 3637);
-});
-
-gulp.task('watch', function() {
-  var server = livereload();
-  server.changed();
-  gulp.watch(dev.styles, ['styles']);
-  gulp.watch(dev.dir + '/**').on('change', function(file) {
-    server.changed(file.path);
+gulp.task('serve', ['styles'], function() {
+  nodemon({ script: 'api/index.js', execMap: { js: 'node --harmony' } })
+    .on('restart', bsReload)
+  browserSync.init({
+    server: ['.tmp', 'app']
   });
+  gulp.watch(dev.styles, ['styles']);
+  gulp.watch(dev.sripts, ['scripts']);
+  gulp.watch([dev.index, dev.templates]).on('change', bsReload);
 });
 
-gulp.task('images', function() {
-  gulp.src(dev.images)
-  .pipe(imagemin(options.imagemin))
-  .pipe(gulp.dest(prod.images));
-});
 
 gulp.task('templates', function() {
   gulp.src(dev.templates)
@@ -73,11 +63,10 @@ gulp.task('styles', function () {
 });
 
 gulp.task('clean', function() {
-  return gulp.src(prod.dir, options.clean)
-  .pipe(clean());
+  return del([prod.dir]);
 });
 
-gulp.task('build', ['clean', 'images', 'templates', 'styles'], function() {
+gulp.task('build', ['clean', 'templates', 'styles'], function() {
   gulp.src(dev.index)
   .pipe(usemin({
     css: [minifyCss()],
@@ -86,4 +75,4 @@ gulp.task('build', ['clean', 'images', 'templates', 'styles'], function() {
   .pipe(gulp.dest(prod.dir));
 });
 
-gulp.task('serve', ['styles', 'server', 'watch']);
+gulp.task('default', ['styles', 'serve']);

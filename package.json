@@ -1,26 +1,24 @@
 {
   "engines": {
-    "node": "0.11.x"
+    "iojs": ">=1.7.1"
   },
   "devDependencies": {
+    "browser-sync": "2.6.4",
+    "del": "1.1.1",
     "gulp": "latest",
-    "gulp-clean": "latest",
     "gulp-htmlmin": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-livereload": "latest",
     "gulp-minify-css": "latest",
+    "gulp-nodemon": "2.0.2",
     "gulp-sass": "latest",
     "gulp-uglify": "latest",
-    "gulp-usemin": "latest",
-    "koa": "latest",
-    "koa-static": "latest"
+    "gulp-usemin": "latest"
   },
   "dependencies": {
-    "cheerio": "^0.17.0",
-    "koa": "^0.8.2",
-    "koa-router": "^3.2.3",
-    "lodash": "^2.4.1",
-    "q": "^1.0.1",
-    "request": "^2.39.0"
+    "cheerio": "0.19.0",
+    "koa": "0.18.1",
+    "koa-router": "4.2.0",
+    "lodash": "3.5.0",
+    "q": "1.2.0",
+    "request": "2.53.0"
   }
 }

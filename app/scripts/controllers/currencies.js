@@ -1,6 +1,5 @@
 app.controller('currenciesCtrl', ['$scope', '$http', function($scope, $http) {
 
-
   try {
     $scope.currencies = JSON.parse(localStorage.currencies);
   } catch(e) {
